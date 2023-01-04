@@ -1,15 +1,20 @@
 import Navbar from "../components/Navbar"
 import { gql } from "@apollo/client";
 import client from "../apollo/apollo-client"
-import dataCleaner from "../utils/blogs-page-cleaner";
-// import getPostData from "../utils/data-cleaner"
-// import path from "path"
+import Text from "@chakra-ui/react"
 
-const Blog = ({data})=>{
+const Blog = ({username, posts})=>{
   return (
     <>
       <Navbar/>
-      <h1>{data.user.blogHandle} this is the blog handle</h1>
+      <div>{username}</div>
+      <div>{posts.map((item)=>{
+        return (<>
+            <h1>{item.slug}</h1>
+            <p>{item.brief}</p>
+          </>
+        )
+      })}</div>
       <h1>this is test</h1>
     </>
   )
@@ -32,12 +37,15 @@ export async function getServerSideProps(){
     `
   })
 
-  // fetch slug, name and content markdown
-console.log(dataCleaner(data))
+  // filtering data
+  const user = data.user // this is the user.
+  const username = user.name
+  const posts = user.publication.posts
 
   return {
     props: {
-      data: data
+      username: username,
+      posts: posts,
     }
   }
 
