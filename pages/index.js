@@ -8,7 +8,7 @@ export default function Home() {
   return (
     <>
     <Layout> 
-      {/* <Navbar /> */}
+      <Navbar />
       <Flex h="100vh" className="index-flex-container" justify="center">
         <Profile />
       </Flex>

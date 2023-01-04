@@ -1,13 +1,15 @@
-import { Flex } from "@chakra-ui/react"
+import {useRouter} from 'next/router'
+import { Flex, Text} from "@chakra-ui/react"
 
 const Navbar = ()=>{
+
+  const router = useRouter() // creating a new router.
+
   return (
-    <Flex>
-      <h1>this</h1>
-      <h1>this</h1>
-      <h1>this</h1>
-      <h1>this</h1>
-      <h1>this</h1>
+    <Flex align="center" justify="center" fontFamily="mono" fontWeight={"bold"}>
+      {/* repeated code here */}
+      <Text  p={["4"]} onClick={()=>router.push('/')} _hover={{"cursor":"pointer"}}>Home</Text>
+      <Text  p={["4"]}  onClick={()=>router.push('/blogs')} _hover={{"cursor": "pointer"}}>Blogs</Text>
     </Flex>
   )
 }
