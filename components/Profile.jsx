@@ -13,18 +13,17 @@ export const Profile = ()=>{
           width={300}
           src={profileImage}
           style={{borderRadius: "50%"}}
+          alt="profile picture"
         />
         </Box>
       <VStack fontFamily="mono" align="left" justify="center" p={8}>
         <Text fontSize={["1xl", "4xl"]} bgGradient='linear(to-r, #F89F8C)' bgClip="text">
-          Hey there ! I'm
+          Hey there ! Im
         </Text>
         <Heading fontSize={["4xl", "8xl"]} fontWeight="extrabold" fontFamily="mono">
             Prateek Singh
         </Heading>
-        <Text maxW="2xl">
-          I am an Engineering student and a full stack Web Developer, but exploration has no limits !
-        </Text>
+        <Text maxW="2xl">I am an Engineering student and a full stack Web Developer, but exploration has no limits !</Text>
       </VStack>
       <HStack>
         <SocialLinks link={twitter} icon={faTwitter} />

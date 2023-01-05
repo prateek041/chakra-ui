@@ -16,7 +16,7 @@ const Blog = ({username, posts})=>{
           <BlogHeader name={username} />
         </Box>
         <div>{posts.map((item)=>{
-            return <BlogCard posts={item}/>
+            return <BlogCard key={item.slug} posts={item}/>
           })}
         </div>
         <Link href="https://prateek-singh.hashnode.dev/" target="_blank">
