@@ -1,22 +1,25 @@
 import Navbar from "../components/Navbar"
 import { gql } from "@apollo/client";
 import client from "../apollo/apollo-client"
-import Text from "@chakra-ui/react"
+import BlogCard from "../components/BlogCard";
+import Layout from "../components/Layout";
+import { Flex, Box} from "@chakra-ui/react";
+import BlogAvtar from "../components/Blog-header"
 
 const Blog = ({username, posts})=>{
   return (
-    <>
+    <Layout>
       <Navbar/>
-      <div>{username}</div>
-      <div>{posts.map((item)=>{
-        return (<>
-            <h1>{item.slug}</h1>
-            <p>{item.brief}</p>
-          </>
-        )
-      })}</div>
-      <h1>this is test</h1>
-    </>
+      <Flex fontFamily="mono" direction="column">
+        <Box mb={20}>
+          <BlogAvtar name={username} />
+        </Box>
+        <div>{posts.map((item)=>{
+            return <BlogCard posts={item}/>
+          })}
+        </div>
+      </Flex>
+    </Layout>
   )
 }
 
@@ -38,7 +41,7 @@ export async function getServerSideProps(){
   })
 
   // filtering data
-  const user = data.user // this is the user.
+  const user = data.user
   const username = user.name
   const posts = user.publication.posts
 
