@@ -1,6 +1,9 @@
-import {Text, Heading, Stack, VStack, Box} from '@chakra-ui/react'
+import {Text, Heading, Stack, VStack, HStack, Box} from '@chakra-ui/react'
 import profileImage from "../public/profile.jpg"
 import Image from "next/image"
+import SocialLinks from './Social-links'
+import {twitter, linkedin, github} from "../utils/socials"
+import { faTwitter, faLinkedin, faGithub } from '@fortawesome/free-brands-svg-icons'
 
 export const Profile = ()=>{
   return (
@@ -23,6 +26,11 @@ export const Profile = ()=>{
           I am an Engineering student and a full stack Web Developer, but exploration has no limits !
         </Text>
       </VStack>
+      <HStack>
+        <SocialLinks link={twitter} icon={faTwitter} />
+        <SocialLinks link={linkedin} icon={faLinkedin} />
+        <SocialLinks link={github} icon={faGithub} />
+      </HStack>
     </Stack>
   )
 }

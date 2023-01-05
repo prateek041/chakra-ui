@@ -6,7 +6,7 @@ import { faTwitter, faLinkedin, faGithub } from '@fortawesome/free-brands-svg-ic
 
 const profileImage = "https://avatars.githubusercontent.com/u/89681447?v=4"
 
-const BlogAvatar = ({name})=>{
+const BlogHeader = ({name})=>{
   return (
     <Flex align="center" justify="space-between">
       {/* Why is the image not working when pushed through local way */}
@@ -23,4 +23,4 @@ const BlogAvatar = ({name})=>{
   )
 }
 
-export default BlogAvatar
+export default BlogHeader

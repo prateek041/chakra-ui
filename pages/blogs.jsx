@@ -3,8 +3,9 @@ import { gql } from "@apollo/client";
 import client from "../apollo/apollo-client"
 import BlogCard from "../components/BlogCard";
 import Layout from "../components/Layout";
-import { Flex, Box} from "@chakra-ui/react";
-import BlogAvtar from "../components/Blog-header"
+import { Flex, Box, Text} from "@chakra-ui/react";
+import BlogHeader from "../components/Blog-header"
+import Link from "next/link"
 
 const Blog = ({username, posts})=>{
   return (
@@ -12,12 +13,17 @@ const Blog = ({username, posts})=>{
       <Navbar/>
       <Flex fontFamily="mono" direction="column">
         <Box mb={20}>
-          <BlogAvtar name={username} />
+          <BlogHeader name={username} />
         </Box>
         <div>{posts.map((item)=>{
             return <BlogCard posts={item}/>
           })}
         </div>
+        <Link href="https://prateek-singh.hashnode.dev/" target="_blank">
+          <Text fontSize="xl" fontWeight="bold">
+            Read the blogs here 👈🏻
+          </Text>
+        </Link>
       </Flex>
     </Layout>
   )

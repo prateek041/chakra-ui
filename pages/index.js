@@ -9,7 +9,7 @@ export default function Home() {
     <>
     <Layout> 
       <Navbar />
-      <Flex h="100vh" className="index-flex-container" justify="center">
+      <Flex h="80vh" className="index-flex-container" justify="center">
         <Profile />
       </Flex>
     </Layout>
