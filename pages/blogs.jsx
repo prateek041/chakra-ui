@@ -29,7 +29,7 @@ const Blog = ({username, posts})=>{
   )
 }
 
-export async function getServerSideProps(){
+export async function getStaticProps(){
   const {data} = await client.query({
     query: gql`
     query {
